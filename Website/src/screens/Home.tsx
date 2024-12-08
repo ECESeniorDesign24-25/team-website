@@ -5,10 +5,10 @@ import { darkTheme } from '../theme';
 
 const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
   const members = [
-    { name: 'Joseph', image: require('../../assets/joseph_headshot.jpeg'), bio: "To be determined.", email: "jbkrueger@uiowa.edu"},
-    { name: 'Holland', image: require('../../assets/joseph_headshot.jpeg'), bio: "To be determined.", email: "holland-gilmore@uiowa.edu"},
-    { name: 'Bri', image: require('../../assets/joseph_headshot.jpeg'), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu"},
-    { name: 'Cavan', image: require('../../assets/joseph_headshot.jpeg'), bio: "To be determined.", email: "cavan-riley@uiowa.edu" },
+    { name: 'Joseph', image1: require('../../assets/joseph_headshot.jpeg'), image2: require("../../assets/joseph_pic_2.jpg"), bio: "Joseph is a fourth-year Computer Science and Engineering student with a focus on Machine Learning. He is from Ankeny, Iowa. Joseph currently works at John Deere for their Intelligent Solutions Group focusing on software development and automation. Outside of school, he enjoys playing soccer, basketball, and poker.", email: "jbkrueger@uiowa.edu"},
+    { name: 'Holland', image1: require('../../assets/joseph_headshot.jpeg'), image2: require("../../assets/BriPic2.jpg"), bio: "To be determined.", email: "holland-gilmore@uiowa.edu"},
+    { name: 'Bri', image1: require('../../assets/BriPic1.jpg'), image2: require("../../assets/BriPic2.jpg"), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu"},
+    { name: 'Cavan', image1: require('../../assets/joseph_headshot.jpeg'), image2: require("../../assets/BriPic2.jpg"), bio: "To be determined.", email: "cavan-riley@uiowa.edu" },
   ];
 
   const projects = [
@@ -26,10 +26,10 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
       <View style={styles.row}>
         {members.map((member, index) => (
           <View key={index} style={styles.memberContainer}>
-            <Image source={member.image} style={styles.memberImage} />
+            <Image source={member.image1} style={styles.memberImage} />
             <TouchableOpacity
               style={[styles.memberButton, { backgroundColor: darkTheme.cardBlack }]}
-              onPress={() => navigation.navigate('MemberPage', { name: member.name, image: member.image, bio: member.bio, email: member.email })}
+              onPress={() => navigation.navigate('MemberPage', { name: member.name, image: member.image2, bio: member.bio, email: member.email })}
             >
               <Text style={{ color: darkTheme.textWhite }}>{member.name}</Text>
             </TouchableOpacity>

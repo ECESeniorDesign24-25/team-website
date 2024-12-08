@@ -1,2 +1,4 @@
-web: npx expo start
+web: node dist/server.js
+
+
 

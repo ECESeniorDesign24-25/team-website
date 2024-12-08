@@ -28,12 +28,13 @@
     "react-native-screens": "^4.3.0",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.13",
-    "serve": "^14.2.4"
+    "serve": "^14.2.4",
+    "typescript": "^5.3.3"
+
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@types/react": "~18.3.12",
-    "typescript": "^5.3.3"
+    "@types/react": "~18.3.12"
   },
   "private": true
 }

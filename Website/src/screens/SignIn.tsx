@@ -4,37 +4,29 @@ import { NavigationProps } from '../types/navigation';
 import { darkTheme } from '../theme';
 
 export default function SignIn({ navigation }: NavigationProps<'SignIn'>) {
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // check if credentials match
+  // check if credentials match TODO: Need to use environment variable
   const handleSignIn = () => {
-    if (username === 'admin' && password === 'password') {
+    if (password === 'password') {
       navigation.navigate('Home');
     } else {
       alert('Invalid credentials.');
     }
   };
 
-  // return the sign-in form
   return (
-    <View style={[styles.container, { backgroundColor: darkTheme.background }]}>
-      <View style={styles.form}>
-        <Text style={[styles.title, { color: darkTheme.primary }]}>Sign In</Text>
+    <View style={[styles.container, { backgroundColor: darkTheme.backgroundBlack }]}>
+      <View style={[styles.form, { backgroundColor: darkTheme.cardBlack }]}>
+        <Text style={[styles.title, { color: darkTheme.accentYellow }]}>Sign In</Text>
         <TextInput
           style={[
             styles.input,
-            { backgroundColor: darkTheme.card, color: darkTheme.text, borderColor: darkTheme.primary },
-          ]}
-          placeholder="Username"
-          placeholderTextColor="#888"
-          value={username}
-          onChangeText={setUsername}
-        />
-        <TextInput
-          style={[
-            styles.input,
-            { backgroundColor: darkTheme.card, color: darkTheme.text, borderColor: darkTheme.primary },
+            {
+              backgroundColor: darkTheme.cardBlack,
+              color: darkTheme.textWhite,
+              borderColor: darkTheme.accentYellow,
+            },
           ]}
           placeholder="Password"
           placeholderTextColor="#888"
@@ -42,7 +34,7 @@ export default function SignIn({ navigation }: NavigationProps<'SignIn'>) {
           value={password}
           onChangeText={setPassword}
         />
-        <Button title="Sign In" color={darkTheme.primary} onPress={handleSignIn} />
+        <Button title="Sign In" color={darkTheme.accentYellow} onPress={handleSignIn} />
       </View>
     </View>
   );
@@ -61,7 +53,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
     borderRadius: 10,
-    backgroundColor: darkTheme.card,
   },
   title: {
     fontSize: 28,
@@ -73,6 +64,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 10,
     borderRadius: 5,
-    borderWidth: 1
+    borderWidth: 1,
   },
 });

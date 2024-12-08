@@ -1,9 +1,7 @@
-// Dark UI Background
+// Dark UI background
 export const darkTheme = {
-    background: '#121212',
-    card: '#1E1E1E',
-    text: '#FFFFFF',
-    primary: '#BB86FC',
-    secondary: '#03DAC6',
-  };
-  
+  backgroundBlack: '#000000', 
+  cardBlack: '#121212',
+  textWhite: '#FFFFFF',
+  accentYellow: '#FFD700',
+};

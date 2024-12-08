@@ -1,2 +1,2 @@
-web: npm start
+web: npx expo start
 

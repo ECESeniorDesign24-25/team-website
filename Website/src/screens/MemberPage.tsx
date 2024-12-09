@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
   title: { 
     fontSize: 24, 
     marginBottom: 20, 
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Antonio-bold',
   },
   memberImage: {
     width: 200,
@@ -64,7 +65,8 @@ const styles = StyleSheet.create({
   text: { 
     fontSize: 16, 
     textAlign: 'center', 
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Roboto-regular',
   },
   footer: {
     marginBottom: 20, 
@@ -72,5 +74,6 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 14,
     textAlign: 'center',
+    fontFamily: 'Roboto-light',
   },
 });

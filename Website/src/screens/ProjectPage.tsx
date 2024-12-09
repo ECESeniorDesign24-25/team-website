@@ -51,13 +51,15 @@ const styles = StyleSheet.create({
   title: { 
     fontSize: 24, 
     marginBottom: 20, 
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Antonio-bold',
   },
   text: { 
     fontSize: 16, 
     textAlign: 'center', 
     marginBottom: 40, 
-    color: '#FFF'
+    color: '#FFF',
+    fontFamily: 'Roboto-regular',
   },
   downloadContainer: {
     alignSelf: 'center',

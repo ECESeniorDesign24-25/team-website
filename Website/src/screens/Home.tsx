@@ -166,12 +166,14 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     textAlign: 'center',
     marginTop: 10,
+    fontFamily: 'Antonio-bold',
   },
   sectionTitle: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Antonio-regular',
   },
   row: {
     flexDirection: 'row',
@@ -228,6 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Antonio-bold',
   },
   input: {
     borderWidth: 1,

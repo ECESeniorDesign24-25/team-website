@@ -1,3 +1,11 @@
+# Downloading the Code
+
+To download this repository to your computer, run the following:
+
+1. `git clone https://github.com/ECESeniorDesign24-25/team-website.git`
+
+   
+
 # Local Deployment
 
 To deploy the application locally, run the following:

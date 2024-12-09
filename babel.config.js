@@ -7,11 +7,10 @@ module.exports = {
       [
         'module-resolver',
         {
-          root: ['./Website'],
-          // alias: {
-          //   components: './Website/components',
-          //   utils: './We/utils',
-          // },
+          // root: ['./Website'],
+          alias: {
+            '@': './Website',
+          },
         },
       ],
     ],

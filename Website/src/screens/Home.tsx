@@ -26,17 +26,17 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // Member data for page
   const members = [
-    { name: 'Joseph', image1: require('../../assets/joseph_headshot.jpeg'), image2: require("../../assets/joseph_pic_2.jpg"), bio: "Joseph is a fourth-year Computer Science and Engineering student with a focus on Machine Learning. He is from Ankeny, Iowa. Joseph currently works at John Deere for their Intelligent Solutions Group focusing on software development and automation. Outside of school, he enjoys playing soccer, basketball, and poker.", email: "jbkrueger@uiowa.edu"},
-    { name: 'Holland', image1: require('../../assets/joseph_headshot.jpeg'), image2: require("../../assets/BriPic2.jpg"), bio: "Holland is a fourth-year Electrical Engineering student with a focus in Power Systems. Upon graduating he intends to pursue work in transmission and distribution planning, substation design and/or protective relay design.", email: "holland-gilmore@uiowa.edu"},
-    { name: 'Bri', image1: require('../../assets/BriPic1.jpg'), image2: require("../../assets/BriPic2.jpg"), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu"},
-    { name: 'Cavan', image1: require('../../assets/cavan_profile_image.png'), image2: require("../../assets/cavan_profile_image.png"), bio: "Cavan is a fourth-year Computer Science and Engineering student with a focus on Software Development. He is from Cedar Rapids, Iowa and is currently an undergraduate research assistant in the SINAPSE lab in the College of Engineering. His research involves leveraging advanced deep learning techniques to analyze medical imaging, aiming to improve diagnostic precision and patient outcomes.", email: "cavan-riley@uiowa.edu" },
+    { name: 'Joseph', image1: require('../../joseph_headshot.jpeg'), image2: require("../../joseph_pic_2.jpg"), bio: "Joseph is a fourth-year Computer Science and Engineering student with a focus on Machine Learning. He is from Ankeny, Iowa. Joseph currently works at John Deere for their Intelligent Solutions Group focusing on software development and automation. Outside of school, he enjoys playing soccer, basketball, and poker.", email: "jbkrueger@uiowa.edu"},
+    { name: 'Holland', image1: require('../../Holland1.jpg'), image2: require("../../Holland1.jpg"), bio: "Holland is a fourth-year Electrical Engineering student with a focus in Power Systems. Upon graduating he intends to pursue work in transmission and distribution planning, substation design and/or protective relay design.", email: "holland-gilmore@uiowa.edu"},
+    { name: 'Bri', image1: require('../../BriPic1.jpg'), image2: require("../../BriPic2.jpg"), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu"},
+    { name: 'Cavan', image1: require('../../cavan_profile_image.png'), image2: require("../../cavan_profile_image.png"), bio: "To be determined.", email: "cavan-riley@uiowa.edu" },
   ];
 
   // Project data for page
   const projects = [
-    { name: 'Smart Thermostat', image: require('../../assets/SmartThermostat.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf'},
-    { name: 'ESP Digital Filter', image: require('../../assets/Lab2.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf'},
-  ];
+    { name: 'Smart Thermostat', image1: require('../../SmartThermostat.jpg'), image2: require('../../SmartThermostat2.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf', description: 'Our Smart Thermostat project utilized an ESP32 Microcontroller to control an internet-connected thermostat module. It also allowed for remote connection over Wi-Fi for real-time temperature monitoring.'},
+    { name: 'ESP Digital Filter', image1: require('../../SmartThermostat.jpg'), image2: require('../../SmartThermostat.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf', description: 'Our ESP Digital Filter project utilized an ESP32 Microcontroller and custom circuitry to implement a digital filter.'},
+  ]
 
   // check if user is authenticated or not
   const handleNavigationRequest = (route: string, params?: object) => {
@@ -112,10 +112,10 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
         <View style={styles.row}>
           {projects.map((project, index) => (
             <View key={index} style={styles.memberContainer}>
-              <Image source={project.image} style={styles.projectImage} />
+              <Image source={project.image1} style={styles.projectImage} />
               <TouchableOpacity
                 style={[styles.projectButton, { backgroundColor: darkTheme.cardBlack }]}
-                onPress={() => handleNavigationRequest('ProjectPage', { name: project.name, reportFile: project.reportFile })}
+                onPress={() => handleNavigationRequest('ProjectPage', { name: project.name, reportFile: project.reportFile, image: project.image2, description: project.description })}
               >
                 <Text style={[styles.nameText , { color: darkTheme.textWhite }]}>{project.name}</Text>
               </TouchableOpacity>

@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "main": "./Website/index.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "heroku-postbuild": "npm run build",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "start": "serve -s dist",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
@@ -28,12 +26,18 @@
     "react-native-screens": "^4.3.0",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.13",
-    "serve": "^14.2.4",
-    "typescript": "^5.3.3",
-    "@types/react": "~18.3.12"
+    "serve": "^14.2.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2"
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
+    "@types/react-dom": "^18.3.2",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   },
   "private": true
 }

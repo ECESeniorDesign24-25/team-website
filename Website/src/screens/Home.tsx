@@ -34,8 +34,8 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // Project data for page
   const projects = [
-    { name: 'Smart Thermostat', image: require('../../assets/joseph_headshot.jpeg'), reportFile: '/assets/Lab1SmartThermostat.pdf'},
-    { name: 'ESP Digital Filter', image: require('../../assets/joseph_headshot.jpeg'), reportFile: '/assets/Lab2DigitalFilter.pdf'},
+    { name: 'Smart Thermostat', image: require('../../assets/SmartThermostat.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf'},
+    { name: 'ESP Digital Filter', image: require('../../assets/Lab2.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf'},
   ];
 
   // check if user is authenticated or not

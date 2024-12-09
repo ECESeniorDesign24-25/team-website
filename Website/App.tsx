@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SignIn from './src/screens/SignIn';
 import Home from './src/screens/Home';
 import MemberPage from './src/screens/MemberPage';
 import ProjectPage from './src/screens/ProjectPage';
@@ -27,10 +26,9 @@ export default function App() {
             headerTintColor: '#FFFFFF',
             headerTitleStyle: { fontWeight: 'bold' },
           }}>
-        {/* <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }}/> */}
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
-        <Stack.Screen name="MemberPage" component={MemberPage} />
-        <Stack.Screen name="ProjectPage" component={ProjectPage} />
+        <Stack.Screen name="MemberPage" component={MemberPage} options={{headerShown: true}} />
+        <Stack.Screen name="ProjectPage" component={ProjectPage} options={{headerShown: true}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

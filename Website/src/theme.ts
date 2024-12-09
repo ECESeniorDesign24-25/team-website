@@ -4,4 +4,5 @@ export const darkTheme = {
   cardBlack: '#121212',
   textWhite: '#FFFFFF',
   accentYellow: '#FFD700',
+  accentGray: "#BBBCBC"
 };

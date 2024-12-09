@@ -27,7 +27,7 @@ export default function App() {
             headerTintColor: '#FFFFFF',
             headerTitleStyle: { fontWeight: 'bold' },
           }}>
-        <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }}/>
+        {/* <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }}/> */}
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
         <Stack.Screen name="MemberPage" component={MemberPage} />
         <Stack.Screen name="ProjectPage" component={ProjectPage} />

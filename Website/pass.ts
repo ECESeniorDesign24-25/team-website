@@ -1,0 +1,1 @@
+export const PASSWORD = "Fall2024Lab3";

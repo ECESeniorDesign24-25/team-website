@@ -23,12 +23,12 @@ export default function App() {
   useEffect(() => {
     async function loadFonts() {
       await Font.loadAsync({
-        'Roboto-bold': require('./assets/fonts/RobotoCondensed-Bold.ttf'),
-        'Roboto-regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
-        'Roboto-light': require('./assets/fonts/RobotoCondensed-Light.ttf'),
-        'Antonio-bold': require('./assets/fonts/Antonio-Bold.ttf'),
-        'Antonio-regular': require('./assets/fonts/Antonio-Regular.ttf'),
-        'Antonio-light': require('./assets/fonts/Antonio-Light.ttf'),
+        'Roboto-bold': require('./fonts/RobotoCondensed-Bold.ttf'),
+        'Roboto-regular': require('./fonts/RobotoCondensed-Regular.ttf'),
+        'Roboto-light': require('./fonts/RobotoCondensed-Light.ttf'),
+        'Antonio-bold': require('./fonts/Antonio-Bold.ttf'),
+        'Antonio-regular': require('./fonts/Antonio-Regular.ttf'),
+        'Antonio-light': require('./fonts/Antonio-Light.ttf'),
       });
       setFontsLoaded(true);
     }

@@ -34,10 +34,10 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // Project data for page
   const projects = [
-    { name: 'Smart Thermostat', image1: require('../../lab1pic1.jpg'), image2: require('../../lab1pic2.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf', description: 'Our Smart Thermostat project utilized an ESP32 Microcontroller to control an internet-connected thermostat module. It also allowed for remote connection over Wi-Fi for real-time temperature monitoring.'},
-    { name: 'ESP Digital Filter', image1: require('../../lab1pic1.jpg'), image2: require('../../lab1pic2.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf', description: 'Our ESP Digital Filter project utilized an ESP32 Microcontroller and custom circuitry to implement a digital filter.'},
+    { name: 'Smart Thermostat', image1: require('../../SmartThermostat.jpg'), image2: require('../../SmartThermostat2.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf', description: 'Our Smart Thermostat project utilized an ESP32 Microcontroller to control an internet-connected thermostat module. It also allowed for remote connection over Wi-Fi for real-time temperature monitoring.'},
+    { name: 'ESP Digital Filter', image1: require('../../SmartThermostat.jpg'), image2: require('../../SmartThermostat.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf', description: 'Our ESP Digital Filter project utilized an ESP32 Microcontroller and custom circuitry to implement a digital filter.'},
   ]
-  
+
   // check if user is authenticated or not
   const handleNavigationRequest = (route: string, params?: object) => {
     if (isAuthenticated) {

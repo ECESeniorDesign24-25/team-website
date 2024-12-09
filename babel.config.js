@@ -1,14 +1,19 @@
 module.exports = {
     presets: [
       'module:metro-react-native-babel-preset',
-      '@babel/preset-typescript'
+      '@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'
     ],
     plugins: [
-      ['module-resolver', {
-        alias: {
-          '^react-native$': 'react-native-web'
-        }
-      }]
-    ]
+      [
+        'module-resolver',
+        {
+          root: ['./Website'],
+          // alias: {
+          //   components: './Website/components',
+          //   utils: './We/utils',
+          // },
+        },
+      ],
+    ],
   };
   

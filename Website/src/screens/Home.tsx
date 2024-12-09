@@ -103,7 +103,7 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
                 style={[styles.memberButton, { backgroundColor: darkTheme.cardBlack }]}
                 onPress={() => handleNavigationRequest('MemberPage', { name: member.name, image: member.image2, bio: member.bio, email: member.email })}
               >
-                <Text style={{ color: darkTheme.textWhite }}>{member.name}</Text>
+                <Text style={[styles.nameText, { color: darkTheme.textWhite }]}>{member.name}</Text>
               </TouchableOpacity>
             </View>
           ))}
@@ -117,7 +117,7 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
                 style={[styles.projectButton, { backgroundColor: darkTheme.cardBlack }]}
                 onPress={() => handleNavigationRequest('ProjectPage', { name: project.name, reportFile: project.reportFile })}
               >
-                <Text style={{ color: darkTheme.textWhite }}>{project.name}</Text>
+                <Text style={[styles.nameText , { color: darkTheme.textWhite }]}>{project.name}</Text>
               </TouchableOpacity>
             </View>
           ))}
@@ -242,6 +242,11 @@ const styles = StyleSheet.create({
   modalButtons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  nameText: {
+    fontSize: 18,
+    textAlign: 'center',
+    fontFamily: 'Roboto-regular',
   },
 });
 

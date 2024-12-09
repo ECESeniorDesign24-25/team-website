@@ -13,7 +13,15 @@ const commonStyle = StyleSheet.create({
   title: { 
     fontSize: 24, 
     marginBottom: 20, 
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Antonio-bold',
+  },
+  text: { 
+    fontSize: 16, 
+    textAlign: 'center', 
+    marginBottom: 40, 
+    color: '#FFF',
+    fontFamily: 'Roboto-regular',
   },
   image: {
     width: 200,
@@ -24,11 +32,6 @@ const commonStyle = StyleSheet.create({
   textContainer: {
     width: '50%',    
     padding: 20,     
-  },
-  text: { 
-    fontSize: 16, 
-    textAlign: 'center', 
-    fontWeight: 'bold'
   },
   footer: {
     marginBottom: 20, 

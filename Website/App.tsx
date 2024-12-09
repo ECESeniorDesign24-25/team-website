@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './src/screens/Home';
 import MemberPage from './src/screens/MemberPage';
 import ProjectPage from './src/screens/ProjectPage';
+import * as Font from 'expo-font';
+import { Text, View } from 'react-native';
+
 
 export type RootStackParamList = {
   SignIn: undefined;
@@ -15,13 +18,34 @@ export type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
+        'Roboto-bold': require('./assets/fonts/RobotoCondensed-Bold.ttf'),
+        'Roboto-regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
+        'Roboto-light': require('./assets/fonts/RobotoCondensed-Light.ttf'),
+        'Antonio-bold': require('./assets/fonts/Antonio-Bold.ttf'),
+        'Antonio-regular': require('./assets/fonts/Antonio-Regular.ttf'),
+        'Antonio-light': require('./assets/fonts/Antonio-Light.ttf'),
+      });
+      setFontsLoaded(true);
+    }
+    loadFonts();
+  }, []);
+
+  if (!fontsLoaded) {
+    return <View><Text>Loading...</Text></View>;
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator
           screenOptions={{
             headerShown: true,
             headerStyle: {
-              backgroundColor: '#FFD700',
+              backgroundColor: '#FFCD00',
             },
             headerTintColor: '#FFFFFF',
             headerTitleStyle: { fontWeight: 'bold' },

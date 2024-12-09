@@ -41,4 +41,3 @@ export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
     </View>
   );
 }
-

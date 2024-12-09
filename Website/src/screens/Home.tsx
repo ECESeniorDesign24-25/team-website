@@ -36,8 +36,8 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
   const projects = [
     { name: 'Smart Thermostat', image1: require('../../lab1pic1.jpg'), image2: require('../../lab1pic2.jpg'), reportFile: '/assets/Lab1SmartThermostat.pdf', description: 'Our Smart Thermostat project utilized an ESP32 Microcontroller to control an internet-connected thermostat module. It also allowed for remote connection over Wi-Fi for real-time temperature monitoring.'},
     { name: 'ESP Digital Filter', image1: require('../../lab1pic1.jpg'), image2: require('../../lab1pic2.jpg'), reportFile: '/assets/Lab2DigitalFilter.pdf', description: 'Our ESP Digital Filter project utilized an ESP32 Microcontroller and custom circuitry to implement a digital filter.'},
-  ];
-
+  ]
+  
   // check if user is authenticated or not
   const handleNavigationRequest = (route: string, params?: object) => {
     if (isAuthenticated) {
@@ -103,7 +103,7 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
                 style={[styles.memberButton, { backgroundColor: darkTheme.cardBlack }]}
                 onPress={() => handleNavigationRequest('MemberPage', { name: member.name, image: member.image2, bio: member.bio, email: member.email })}
               >
-                <Text style={{ color: darkTheme.textWhite }}>{member.name}</Text>
+                <Text style={[styles.nameText, { color: darkTheme.textWhite }]}>{member.name}</Text>
               </TouchableOpacity>
             </View>
           ))}
@@ -117,7 +117,7 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
                 style={[styles.projectButton, { backgroundColor: darkTheme.cardBlack }]}
                 onPress={() => handleNavigationRequest('ProjectPage', { name: project.name, reportFile: project.reportFile, image: project.image2, description: project.description })}
               >
-                <Text style={{ color: darkTheme.textWhite }}>{project.name}</Text>
+                <Text style={[styles.nameText , { color: darkTheme.textWhite }]}>{project.name}</Text>
               </TouchableOpacity>
             </View>
           ))}
@@ -166,12 +166,14 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     textAlign: 'center',
     marginTop: 10,
+    fontFamily: 'Antonio-bold',
   },
   sectionTitle: {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Antonio-regular',
   },
   row: {
     flexDirection: 'row',
@@ -228,6 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    fontFamily: 'Antonio-bold',
   },
   input: {
     borderWidth: 1,
@@ -239,6 +242,11 @@ const styles = StyleSheet.create({
   modalButtons: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  nameText: {
+    fontSize: 18,
+    textAlign: 'center',
+    fontFamily: 'Roboto-regular',
   },
 });
 

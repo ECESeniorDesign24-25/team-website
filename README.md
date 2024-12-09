@@ -20,9 +20,9 @@ This will run the website in your local browser.
 
 To deploy the application remotely, run the following:
 
-1. `./deploy.sh`
+1. `./deploy_myweb.sh`
 
-This will redeploy the application using Vercel
+This will redeploy the application to the UIowa MyWeb server
 
 
 # Changing Password

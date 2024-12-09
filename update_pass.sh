@@ -11,7 +11,6 @@ NEW_PASSWORD=$1
 sed -i '' "s/export const PASSWORD = \".*\";/export const PASSWORD = \"$NEW_PASSWORD\";/" "Website/pass.ts"
 
 # redeploy
-./deploy_vercel.sh
 ./deploy_myweb.sh
 
 echo "Updated password to '$NEW_PASSWORD'."

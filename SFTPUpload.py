@@ -6,8 +6,8 @@ from base64 import decodebytes
 SFTP_HOST = "sftp.iowa.uiowa.edu"
 SFTP_USERNAME = os.getenv("HAWKID")
 SFTP_PASSWORD = os.getenv("HAWKID_PASSWORD")
-REMOTE_DIRECTORY = f"myweb/jbkrueger"
-LOCAL_DIRECTORY = "/Users/josephkrueger/college/2024_fall/senior_design/team-website/Website/web-build"
+REMOTE_DIRECTORY = f"myweb/{SFTP_USERNAME}"
+LOCAL_DIRECTORY = "Website/web-build"
 
 # Host key (replace this with the actual key you obtained)
 HOST_KEY = "AAAAB3NzaC1yc2EAAAADAQABAAABAQC5jEjyElNE8eENpIttSD+cXe/FZQpoXOdTTJVHjg+QZLWjedspjZ9npo2yc1j1eDyyMtOYBQEAh/PW1wN8n7qvnczgtFazIIMzEqUAQ+axK2q0h8KiPK3Uq+s86SCMkIaSxWXf25QfUpkN+5OkUSI6cqMLYPekrtgq9aNDK7LH2GUhdBJ4A5RSb6p7lhj57licxxssD/EfDGDBSwOroJG9dgzBLIcNBP0/KjWT6m9N02bKbJQ35VI2TflYjfPAebXaXMGmrbapLHD1dmd1Aj42/FfO76UdANo9LaX2Gs8Wi+qGlCC3CEIGIGGfk3QOa4GOZgp250DkJKNxaSfrFz4J"

@@ -4,10 +4,14 @@ import { NavigationProps } from '../types/navigation';
 import { darkTheme } from '../theme';
 import commonStyle from '../common_style';
 
+// ProjectPage component
 export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
+
+  // customized data for each project
   const { name, reportFile, image, description } = route.params;
   const [downloading, setDownloading] = useState(false);
 
+  // download the pdf
   const downloadReport = () => {
     if (Platform.OS === 'web') {
       setDownloading(true);
@@ -25,6 +29,7 @@ export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
     }
   };
 
+  // render ProjectPage
   return (
     <View style={[commonStyle.container, { backgroundColor: darkTheme.backgroundBlack }]}>
       <Text style={[commonStyle.title, { color: darkTheme.accentYellow }]}>{name}</Text>

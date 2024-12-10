@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { darkTheme } from './theme';
 
 const commonStyle = StyleSheet.create({
   container: { 
@@ -6,6 +7,94 @@ const commonStyle = StyleSheet.create({
     padding: 20,
     justifyContent: 'space-between', 
     alignItems: 'center',
+  },
+  header: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    marginBottom: 40,
+    textAlign: 'center',
+    marginTop: 10,
+    fontFamily: 'Antonio-bold',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    width: '100%',
+  },
+  memberContainer: {
+    alignItems: 'center',
+    margin: 20,
+  },
+  memberButton: {
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    marginTop: 10,
+    width: 120,
+    alignItems: 'center',
+  },
+  projectButton: {
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    marginTop: 10,
+    width: 200,
+    alignItems: 'center',
+  },
+  memberImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    padding: 10,
+  },
+  projectImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 20,
+    padding: 10,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  },
+  modalContent: {
+    width: '80%',
+    padding: 20,
+    backgroundColor: darkTheme.cardBlack,
+    borderRadius: 10,
+  },
+  sectionTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    fontFamily: 'Antonio-regular',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    fontFamily: 'Antonio-bold',
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 20,
+    fontSize: 16,
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  nameText: {
+    fontSize: 18,
+    textAlign: 'center',
+    fontFamily: 'Roboto-regular',
   },
   content: {
     alignItems: 'center',

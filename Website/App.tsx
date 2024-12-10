@@ -8,6 +8,7 @@ import * as Font from 'expo-font';
 import { Text, View } from 'react-native';
 
 
+// stack navigator parameters
 export type RootStackParamList = {
   SignIn: undefined;
   Home: undefined;
@@ -15,12 +16,14 @@ export type RootStackParamList = {
   ProjectPage: { name: string, reportFile: string };
 };
 
-const Stack = createStackNavigator<RootStackParamList>();
+// stack navigator object for app screens
+const StackNavigator = createStackNavigator<RootStackParamList>();
 
+// main app component
 export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-  useEffect(() => {
+  // load Uiowa fonts: https://brand.uiowa.edu/fonts 
+  useEffect(function loadFontsEffect() {
     async function loadFonts() {
       await Font.loadAsync({
         'Roboto-bold': require('./fonts/RobotoCondensed-Bold.ttf'),
@@ -30,18 +33,14 @@ export default function App() {
         'Antonio-regular': require('./fonts/Antonio-Regular.ttf'),
         'Antonio-light': require('./fonts/Antonio-Light.ttf'),
       });
-      setFontsLoaded(true);
     }
     loadFonts();
   }, []);
 
-  if (!fontsLoaded) {
-    return <View><Text>Loading...</Text></View>;
-  }
-
+  // render the app screens
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <StackNavigator.Navigator
           screenOptions={{
             headerShown: true,
             headerStyle: {
@@ -50,10 +49,10 @@ export default function App() {
             headerTintColor: '#FFFFFF',
             headerTitleStyle: { fontWeight: 'bold' },
           }}>
-        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }}/>
-        <Stack.Screen name="MemberPage" component={MemberPage} options={{headerShown: true}} />
-        <Stack.Screen name="ProjectPage" component={ProjectPage} options={{headerShown: true}}/>
-      </Stack.Navigator>
+        <StackNavigator.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+        <StackNavigator.Screen name="MemberPage" component={MemberPage} options={{headerShown: true}} />
+        <StackNavigator.Screen name="ProjectPage" component={ProjectPage} options={{headerShown: true}}/>
+      </StackNavigator.Navigator>
     </NavigationContainer>
   );
 }

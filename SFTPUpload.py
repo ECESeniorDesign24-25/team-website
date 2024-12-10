@@ -62,7 +62,7 @@ def main():
     sftp_client = paramiko.SFTPClient.from_transport(transport)
 
     upload_directory(sftp_client, BUILD_DIRECTORY, REMOTE_DIRECTORY)
-    sftp.close()
+    sftp_client.close()
     transport.close()
 
 if __name__ == "__main__":

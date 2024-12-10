@@ -12,10 +12,9 @@ export const darkTheme = {
 // component common styles
 const commonStyle = StyleSheet.create({
   container: { 
-    flex: 1, 
     padding: 20,
-    justifyContent: 'space-between', 
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingBottom: 20,
   },
   header: {
     fontSize: 36,
@@ -167,6 +166,9 @@ const commonStyle = StyleSheet.create({
     borderColor: darkTheme.accentYellow,
     borderRadius: 5,
     backgroundColor: darkTheme.cardBlack,
+    width: '50%',
+    alignSelf: 'center',
+    paddingBottom: 20,
   },
   formContent: {
     flexDirection: 'row', 
@@ -201,6 +203,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: darkTheme.cardBlack,
     color: darkTheme.textWhite,
+    alignSelf: 'stretch',
   },
   formTextArea: {
     height: 100,
@@ -211,10 +214,16 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: darkTheme.cardBlack,
     color: darkTheme.textWhite,
+    alignSelf: 'stretch',
   },
   buttonContainer: {
     marginTop: 15,
   },
+  formButtonContainer: {
+    marginTop: 15,
+    width: '50%',
+    alignSelf: 'center',
+  }
 });
 
 export default commonStyle;

@@ -2,7 +2,8 @@ import React from 'react';
 import { ScrollView, View, Text, Image, Linking } from 'react-native';
 import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
-import SMSComponent from '../components/SMSComponent'; // Adjust the import path to your SendMessageForm component
+import SMSComponent from '../components/SMSComponent';
+import Footer from '../components/Footer'; 
 
 // MemberPage component
 export default function MemberPage({ route }: NavigationProps<'MemberPage'>) {
@@ -47,19 +48,7 @@ export default function MemberPage({ route }: NavigationProps<'MemberPage'>) {
             />
           </View>
         </View>
-
-        {/* Footer */}
-        <View style={commonStyle.footer}>
-          <Text style={[commonStyle.footerText, { color: darkTheme.textWhite }]}>
-            The University of Iowa, College of Engineering (2024). Contact:{' '}
-            <Text
-              style={{ textDecorationLine: 'underline', color: darkTheme.textWhite }}
-              onPress={handleEmailPress}
-            >
-              {email}
-            </Text>
-          </Text>
-        </View>
+        <Footer />
       </ScrollView>
     </View>
   );

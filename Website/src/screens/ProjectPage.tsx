@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button, Alert, Platform, Image } from 'react-native';
 import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
+import Footer from '../components/Footer';
 
 // ProjectPage component
 export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
@@ -42,6 +43,7 @@ export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
           disabled={downloading}
         />
       </View>
+      <Footer />
     </View>
   );
 }

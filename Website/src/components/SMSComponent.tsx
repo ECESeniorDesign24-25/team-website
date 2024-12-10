@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, Linking } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
 
 // SMS component
 const SMSComponent: React.FC<NavigationProps<'SendMessageForm'>> = ({ route }) => {
+    
   // Custom member params
   const { name, email, number } = route.params;
 
@@ -13,29 +14,15 @@ const SMSComponent: React.FC<NavigationProps<'SendMessageForm'>> = ({ route }) =
   const [message, setMessage] = useState('');
   const [userPhoneNumber, setUserPhoneNumber] = useState('');
 
-  // Handle send message logic
-  const handleSendMessage = () => {
-    if (!userName || !message || !userPhoneNumber) {
-      Alert.alert('Error', 'Please fill in all fields.');
-      return;
-    }
-
-    const smsBody = `Hi ${name},\n\n${message}\n\nFrom: ${userName} (${userPhoneNumber})`;
-
-    const smsUrl = `sms:${number}?body=${encodeURIComponent(smsBody)}`;
-    try {
-      Linking.openURL(smsUrl);
-    } catch {
-      Alert.alert('Error', 'Failed to open SMS app.');
-    }
-  };
+  // Handle send message logic TODO
+  const handleSendMessage = () => {};
 
   return (
     <View style={commonStyle.container}>
 
       {/* Form Layout */}
       <View style={commonStyle.formRow}>
-        
+
         {/* Left Column */}
         <View style={commonStyle.leftColumn}>
           <TextInput
@@ -69,7 +56,7 @@ const SMSComponent: React.FC<NavigationProps<'SendMessageForm'>> = ({ route }) =
       </View>
 
       {/* Button */}
-      <View style={commonStyle.buttonContainer}>
+      <View style={commonStyle.formButtonContainer}>
         <Button
           title="Send Message"
           color={darkTheme.accentYellow}

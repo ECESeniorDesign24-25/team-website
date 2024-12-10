@@ -4,6 +4,7 @@ import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
 import { PASSWORD } from '../../pass';
 import { showAlert } from '../utils/Alert';
+import Footer from '../components/Footer';
 
 // Home component
 const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
@@ -86,7 +87,6 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // Render the Home page
   return (
-    <>
       <ScrollView 
         style={{ backgroundColor: darkTheme.backgroundBlack }} 
         contentContainerStyle={commonStyle.container}
@@ -120,36 +120,36 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
             </View>
           ))}
         </View>
-      </ScrollView>
 
-      {/* Modal for sign in component */}
-      <Modal visible={isModalVisible} transparent={true} animationType="fade">
-        <View style={commonStyle.modalContainer}>
-          <View style={commonStyle.modalContent}>
-            <Text style={[commonStyle.modalTitle, { color: darkTheme.accentYellow }]}>Enter Password</Text>
-            <TextInput
-              style={[
-                commonStyle.input,
-                {
-                  backgroundColor: darkTheme.cardBlack,
-                  color: darkTheme.textWhite,
-                  borderColor: darkTheme.accentYellow,
-                },
-              ]}
-              placeholder="Password"
-              placeholderTextColor="#888"
-              secureTextEntry
-              value={password}
-              onChangeText={setPassword}
-            />
-            <View style={commonStyle.modalButtons}>
-              <Button title="Submit" color={darkTheme.accentYellow} onPress={handleSignIn} />
-              <Button title="Cancel" color={darkTheme.accentGray} onPress={() => setModalVisible(false)} />
+        {/* Modal for sign in component */}
+        <Modal visible={isModalVisible} transparent={true} animationType="fade">
+          <View style={commonStyle.modalContainer}>
+            <View style={commonStyle.modalContent}>
+              <Text style={[commonStyle.modalTitle, { color: darkTheme.accentYellow }]}>Enter Password</Text>
+              <TextInput
+                style={[
+                  commonStyle.input,
+                  {
+                    backgroundColor: darkTheme.cardBlack,
+                    color: darkTheme.textWhite,
+                    borderColor: darkTheme.accentYellow,
+                  },
+                ]}
+                placeholder="Password"
+                placeholderTextColor="#888"
+                secureTextEntry
+                value={password}
+                onChangeText={setPassword}
+              />
+              <View style={commonStyle.modalButtons}>
+                <Button title="Submit" color={darkTheme.accentYellow} onPress={handleSignIn} />
+                <Button title="Cancel" color={darkTheme.accentGray} onPress={() => setModalVisible(false)} />
+              </View>
             </View>
           </View>
-        </View>
-      </Modal>
-    </>
+        </Modal>
+        <Footer />
+      </ScrollView>
   );
 };
 

@@ -1,6 +1,15 @@
 import { StyleSheet } from 'react-native';
-import { darkTheme } from './theme';
 
+// Dark UI background
+export const darkTheme = {
+    backgroundBlack: '#000000', 
+    cardBlack: '#121212',
+    textWhite: '#FFFFFF',
+    accentYellow: '#FFCD00',
+    accentGray: "#BBBCBC"
+  };
+
+// component common styles
 const commonStyle = StyleSheet.create({
   container: { 
     flex: 1, 
@@ -108,7 +117,7 @@ const commonStyle = StyleSheet.create({
   text: { 
     fontSize: 16, 
     textAlign: 'center', 
-    marginBottom: 40, 
+    marginBottom: 10, 
     color: '#FFF',
     fontFamily: 'Roboto-regular',
   },
@@ -132,6 +141,79 @@ const commonStyle = StyleSheet.create({
   downloadContainer: {
     alignSelf: 'center',
     width: '60%',
+  },
+  textArea: {
+    height: 100,
+    borderColor: darkTheme.accentYellow,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    backgroundColor: darkTheme.cardBlack,
+    color: darkTheme.textWhite,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#666',
+    marginBottom: 20,
+  },
+  outerContainer: {
+    flex: 1,
+    backgroundColor: darkTheme.backgroundBlack,
+  },
+  formContainer: {
+    padding: 15,
+    borderWidth: 1,
+    borderColor: darkTheme.accentYellow,
+    borderRadius: 5,
+    backgroundColor: darkTheme.cardBlack,
+  },
+  formContent: {
+    flexDirection: 'row', 
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 10,
+  },
+  formTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: darkTheme.accentYellow,
+    textAlign: 'center',
+    marginBottom: 15,
+  },
+  formRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  leftColumn: {
+    flex: 1,
+    marginRight: 10,
+  },
+  rightColumn: {
+    flex: 1,
+  },
+  formInput: {
+    height: 40,
+    borderColor: darkTheme.accentYellow,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    backgroundColor: darkTheme.cardBlack,
+    color: darkTheme.textWhite,
+  },
+  formTextArea: {
+    height: 100,
+    borderColor: darkTheme.accentYellow,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    backgroundColor: darkTheme.cardBlack,
+    color: darkTheme.textWhite,
+  },
+  buttonContainer: {
+    marginTop: 15,
   },
 });
 

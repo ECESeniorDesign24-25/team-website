@@ -1,45 +1,66 @@
 import React from 'react';
-import { View, Text, Image, Linking } from 'react-native';
+import { ScrollView, View, Text, Image, Linking } from 'react-native';
 import { NavigationProps } from '../types/navigation';
-import { darkTheme } from '../theme';
-import commonStyle  from '../common_style';
-
+import commonStyle, { darkTheme } from '../utils/Style';
+import SMSComponent from '../components/SMSComponent'; // Adjust the import path to your SendMessageForm component
 
 // MemberPage component
 export default function MemberPage({ route }: NavigationProps<'MemberPage'>) {
-
-  // customized data for each member
+  // Customized data for each member
   const { name, image, bio, email } = route.params;
 
-  // handle email link press
+  // Handle email link press
   const handleEmailPress = () => {
     Linking.openURL(`mailto:${email}`);
   };
 
-  // render MemberPage
+  // Render MemberPage
   return (
-    <View style={[commonStyle.container, { backgroundColor: darkTheme.backgroundBlack }]}>
-      <View style={commonStyle.content}>
-        <Text style={[commonStyle.title, { color: darkTheme.accentYellow }]}>{name}</Text>
-        <Image source={image} style={commonStyle.image} />
-        <View style={commonStyle.textContainer}>
-          <Text style={[commonStyle.text, { color: darkTheme.textWhite }]}>{bio}</Text>
+    <View style={commonStyle.outerContainer}>
+      <ScrollView
+        contentContainerStyle={[
+          commonStyle.container,
+          { backgroundColor: darkTheme.backgroundBlack, paddingBottom: 20 },
+        ]}
+      >
+        {/* Member Information */}
+        <View style={commonStyle.content}>
+          <Text style={[commonStyle.title, { color: darkTheme.accentYellow }]}>{name}</Text>
+          <Image source={image} style={commonStyle.image} />
+          <View style={commonStyle.textContainer}>
+            <Text style={[commonStyle.text, { color: darkTheme.textWhite }]}>{bio}</Text>
+          </View>
         </View>
-      </View>
-      <View style={commonStyle.footer}>
 
-        {/* common footer */}
-        <Text style={[commonStyle.footerText, { color: darkTheme.textWhite }]}>
-          The University of Iowa, College of Engineering (2024). Contact: 
-          {' '}
-          <Text
-            style={{ textDecorationLine: 'underline', color: darkTheme.textWhite }}
-            onPress={handleEmailPress}
-          >
-            {email}
+        {/* Form Section in a Box */}
+        <View style={commonStyle.formContainer}>
+          <Text style={commonStyle.formTitle}>Send {name} a message</Text>
+          <View style={commonStyle.formContent}>
+            <SMSComponent
+              route={{
+                params: {
+                  name,
+                  email,
+                  number: email,
+                },
+              }}
+            />
+          </View>
+        </View>
+
+        {/* Footer */}
+        <View style={commonStyle.footer}>
+          <Text style={[commonStyle.footerText, { color: darkTheme.textWhite }]}>
+            The University of Iowa, College of Engineering (2024). Contact:{' '}
+            <Text
+              style={{ textDecorationLine: 'underline', color: darkTheme.textWhite }}
+              onPress={handleEmailPress}
+            >
+              {email}
+            </Text>
           </Text>
-        </Text>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }

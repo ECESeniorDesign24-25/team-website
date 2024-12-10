@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { ScrollView, View, Text, TouchableOpacity, Image, Modal, TextInput, Alert, Button } from 'react-native';
 import { NavigationProps } from '../types/navigation';
-import { darkTheme } from '../theme';
+import commonStyle, { darkTheme } from '../utils/Style';
 import { PASSWORD } from '../../pass';
-import commonStyle from '../common_style';
 import { showAlert } from '../utils/Alert';
 
 // Home component

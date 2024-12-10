@@ -5,7 +5,7 @@ import Home from './src/screens/Home';
 import MemberPage from './src/screens/MemberPage';
 import ProjectPage from './src/screens/ProjectPage';
 import * as Font from 'expo-font';
-import { Text, View } from 'react-native';
+import SendMessageForm from './src/components/SMSComponent';
 
 
 // stack navigator parameters
@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Home: undefined;
   MemberPage: { name: string, image: any, bio: string, email: string };
   ProjectPage: { name: string, reportFile: string };
+  SendMessageForm: { name: string; email: string; number: string }; 
 };
 
 // stack navigator object for app screens
@@ -52,6 +53,7 @@ export default function App() {
         <StackNavigator.Screen name="Home" component={Home} options={{ headerShown: false }}/>
         <StackNavigator.Screen name="MemberPage" component={MemberPage} options={{headerShown: true}} />
         <StackNavigator.Screen name="ProjectPage" component={ProjectPage} options={{headerShown: true}}/>
+        <StackNavigator.Screen name="SendMessageForm" component={SendMessageForm} options={{ title: 'Send Message' }}/>
       </StackNavigator.Navigator>
     </NavigationContainer>
   );

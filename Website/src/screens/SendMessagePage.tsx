@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Dimensions } from 'react-native';
-import { NavigationProps } from '../types/types';
-import { useMessages } from '../contexts/MessagesContext';
-import FooterComponent from '../components/FooterComponent';
-import commonStyle, { darkTheme } from '../utils/Style';
-import { showAlert } from '../utils/Alert';
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, Dimensions } from "react-native";
+import { NavigationProps } from "../types/types";
+import { useMessages } from "../contexts/MessagesContext";
+import FooterComponent from "../components/FooterComponent";
+import commonStyle, { darkTheme } from "../utils/Style";
+import { showAlert } from "../utils/Alert";
 
-
-const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, navigation }) => {
-
+const SendMessagePage: React.FC<NavigationProps<"SendMessagePage">> = ({
+  route,
+  navigation,
+}) => {
   // use the name from memberpage as the to field
   const { name } = route.params;
   const to = name;
@@ -17,9 +18,9 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
   const { addMessage } = useMessages();
 
   // local state for form inputs
-  const [from, setFrom] = useState('');
-  const [messageBody, setMessageBody] = useState('');
-  const [status, setStatus] = useState('');
+  const [from, setFrom] = useState("");
+  const [messageBody, setMessageBody] = useState("");
+  const [status, setStatus] = useState("");
 
   // status message for form submission
   let statusMessage = null;
@@ -31,21 +32,21 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
   // on submit click
   const handleSubmit = () => {
     if (!from || !messageBody) {
-      setStatus('');
-      showAlert('Error', 'Please fill out all fields.');
+      setStatus("");
+      showAlert("Error", "Please fill out all fields.");
       return;
     }
     addMessage(to, from, messageBody);
-    setFrom('');
-    setMessageBody('');
-    setStatus('Message added successfully!');
+    setFrom("");
+    setMessageBody("");
+    setStatus("Message added successfully!");
   };
 
   return (
     <View style={commonStyle.outerContainer}>
       <View style={commonStyle.innerContainer}>
         <Text style={commonStyle.title}>Send a Message</Text>
-        
+
         {/* To */}
         <TextInput
           style={commonStyle.input}
@@ -54,7 +55,7 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
           value={to}
           editable={false} // cant change this
         />
-        
+
         {/* From  */}
         <TextInput
           style={commonStyle.input}
@@ -63,7 +64,7 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
           value={from}
           onChangeText={setFrom}
         />
-        
+
         {/* Body */}
         <TextInput
           style={commonStyle.textArea}
@@ -73,7 +74,7 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
           value={messageBody}
           onChangeText={setMessageBody}
         />
-        
+
         {/* Submit */}
         <View style={commonStyle.buttonContainer}>
           <Button
@@ -82,17 +83,17 @@ const SendMessagePage: React.FC<NavigationProps<'SendMessagePage'>> = ({ route, 
             onPress={handleSubmit}
           />
         </View>
-        
+
         {/* status message */}
         {statusMessage}
       </View>
-        
+
       {/* Message History */}
       <View style={commonStyle.buttonContainer}>
         <Button
           title="View Message History"
           color={darkTheme.accentYellow}
-          onPress={() => navigation.navigate('MessageHistoryPage')}
+          onPress={() => navigation.navigate("MessageHistoryPage")}
         />
       </View>
 

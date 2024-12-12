@@ -1,5 +1,5 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { ReactNode } from 'react';
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ReactNode } from "react";
 
 // Navigation parameters for the app
 export type RootStackParamList = {
@@ -10,7 +10,8 @@ export type RootStackParamList = {
 };
 
 // Navigation props for the app
-export type NavigationProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;
+export type NavigationProps<T extends keyof RootStackParamList> =
+  NativeStackScreenProps<RootStackParamList, T>;
 
 //////////////////////////////////////// Authentication ////////////////////////////////////////
 
@@ -18,12 +19,12 @@ export type NavigationProps<T extends keyof RootStackParamList> = NativeStackScr
 export type AuthenticationContextType = {
   isAuthenticated: boolean;
   setIsAuthenticated: (value: boolean) => void;
-}
+};
 
 // parameters for the provider
 export type AuthenticationProviderProps = {
   children: ReactNode;
-}
+};
 
 //////////////////////////////////////// Messaging ////////////////////////////////////////
 
@@ -34,7 +35,7 @@ export type Message = {
   from: string;
   messageBody: string;
   timestamp: number;
-}
+};
 
 // parameters for the provider
 interface MessagesProviderProps {

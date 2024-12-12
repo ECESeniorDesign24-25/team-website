@@ -1,12 +1,14 @@
-import React from 'react';
-import { ScrollView, View, Text, Image, Button } from 'react-native';
-import { NavigationProps } from '../types/types';
-import commonStyle, { darkTheme } from '../utils/Style';
-import FooterComponent from '../components/FooterComponent';
+import React from "react";
+import { ScrollView, View, Text, Image, Button } from "react-native";
+import { NavigationProps } from "../types/types";
+import commonStyle, { darkTheme } from "../utils/Style";
+import FooterComponent from "../components/FooterComponent";
 
 // MemberPage component
-export default function MemberPage({ route, navigation }: NavigationProps<'MemberPage'>) {
-  
+export default function MemberPage({
+  route,
+  navigation,
+}: NavigationProps<"MemberPage">) {
   // member data
   const { name, image, bio } = route.params;
 
@@ -21,14 +23,18 @@ export default function MemberPage({ route, navigation }: NavigationProps<'Membe
       >
         <View style={commonStyle.content}>
           {/* Name */}
-          <Text style={[commonStyle.title, { color: darkTheme.accentYellow }]}>{name}</Text>
+          <Text style={[commonStyle.title, { color: darkTheme.accentYellow }]}>
+            {name}
+          </Text>
 
           {/* Image */}
           <Image source={image} style={commonStyle.image} />
 
           {/* Bio */}
           <View style={commonStyle.textContainer}>
-            <Text style={[commonStyle.text, { color: darkTheme.textWhite }]}>{bio}</Text>
+            <Text style={[commonStyle.text, { color: darkTheme.textWhite }]}>
+              {bio}
+            </Text>
           </View>
         </View>
 
@@ -40,7 +46,9 @@ export default function MemberPage({ route, navigation }: NavigationProps<'Membe
             <Button
               title="Send a Message"
               color={darkTheme.accentYellow}
-              onPress={() => navigation.navigate('SendMessagePage', { name: name })}
+              onPress={() =>
+                navigation.navigate("SendMessagePage", { name: name })
+              }
             />
           </View>
 
@@ -49,7 +57,7 @@ export default function MemberPage({ route, navigation }: NavigationProps<'Membe
             <Button
               title="View Message History"
               color={darkTheme.accentYellow}
-              onPress={() => navigation.navigate('MessageHistoryPage')}
+              onPress={() => navigation.navigate("MessageHistoryPage")}
             />
           </View>
         </View>

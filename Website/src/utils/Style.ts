@@ -1,38 +1,38 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 // Dark UI background
 export const darkTheme = {
-  backgroundBlack: '#000000', 
-  cardBlack: '#121212',
-  textWhite: '#FFFFFF',
-  accentYellow: '#FFCD00',
+  backgroundBlack: "#000000",
+  cardBlack: "#121212",
+  textWhite: "#FFFFFF",
+  accentYellow: "#FFCD00",
   accentGray: "#BBBCBC",
   accentGreen: "#009688",
 };
 
 // component common styles
 const commonStyle = StyleSheet.create({
-  container: { 
+  container: {
     padding: 20,
-    justifyContent: 'flex-start',
+    justifyContent: "flex-start",
     paddingBottom: 20,
   },
   header: {
     fontSize: 36,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 40,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 10,
-    fontFamily: 'Antonio-bold',
+    fontFamily: "Antonio-bold",
   },
   row: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
-    width: '100%',
+    flexDirection: "row",
+    justifyContent: "space-around",
+    flexWrap: "wrap",
+    width: "100%",
   },
   memberContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     margin: 20,
   },
   memberButton: {
@@ -41,7 +41,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10,
     width: 120,
-    alignItems: 'center',
+    alignItems: "center",
   },
   projectButton: {
     padding: 10,
@@ -49,7 +49,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     marginTop: 10,
     width: 200,
-    alignItems: 'center',
+    alignItems: "center",
   },
   memberImage: {
     width: 150,
@@ -65,29 +65,29 @@ const commonStyle = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.8)",
   },
   modalContent: {
-    width: '80%',
+    width: "80%",
     padding: 20,
     backgroundColor: darkTheme.cardBlack,
     borderRadius: 10,
   },
   sectionTitle: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    textAlign: 'center',
-    fontFamily: 'Antonio-regular',
+    textAlign: "center",
+    fontFamily: "Antonio-regular",
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    textAlign: 'center',
-    fontFamily: 'Antonio-bold',
+    textAlign: "center",
+    fontFamily: "Antonio-bold",
   },
   input: {
     borderWidth: 1,
@@ -103,30 +103,30 @@ const commonStyle = StyleSheet.create({
     backgroundColor: darkTheme.cardBlack,
   },
   modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   nameText: {
     fontSize: 18,
-    textAlign: 'center',
-    fontFamily: 'Roboto-regular',
+    textAlign: "center",
+    fontFamily: "Roboto-regular",
   },
   content: {
-    alignItems: 'center',
+    alignItems: "center",
   },
-  title: { 
-    fontSize: 24, 
-    marginBottom: 20, 
-    textAlign: 'center',
-    fontFamily: 'Antonio-bold',
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    textAlign: "center",
+    fontFamily: "Antonio-bold",
     color: darkTheme.accentYellow,
   },
-  text: { 
-    fontSize: 16, 
-    textAlign: 'center', 
-    marginBottom: 10, 
-    color: '#FFF',
-    fontFamily: 'Roboto-regular',
+  text: {
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 10,
+    color: "#FFF",
+    fontFamily: "Roboto-regular",
   },
   image: {
     width: 200,
@@ -135,19 +135,19 @@ const commonStyle = StyleSheet.create({
     marginBottom: 20,
   },
   textContainer: {
-    width: '50%',    
-    padding: 20,     
+    width: "50%",
+    padding: 20,
   },
   footer: {
-    marginBottom: 20, 
+    marginBottom: 20,
   },
   footerText: {
     fontSize: 14,
-    textAlign: 'center',
+    textAlign: "center",
   },
   downloadContainer: {
-    alignSelf: 'center',
-    width: '60%',
+    alignSelf: "center",
+    width: "60%",
   },
   textArea: {
     height: 100,
@@ -160,18 +160,18 @@ const commonStyle = StyleSheet.create({
     color: darkTheme.textWhite,
     paddingVertical: 10,
     marginVertical: 10,
-    textAlignVertical: 'top',
+    textAlignVertical: "top",
   },
   subtitle: {
     fontSize: 16,
-    color: '#666',
+    color: "#666",
     marginBottom: 20,
   },
   outerContainer: {
     flex: 1,
     backgroundColor: darkTheme.backgroundBlack,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
   },
   formContainer: {
@@ -180,26 +180,26 @@ const commonStyle = StyleSheet.create({
     borderColor: darkTheme.accentYellow,
     borderRadius: 5,
     backgroundColor: darkTheme.cardBlack,
-    width: '50%',
-    alignSelf: 'center',
+    width: "50%",
+    alignSelf: "center",
     paddingBottom: 20,
   },
   formContent: {
-    flexDirection: 'row', 
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     gap: 10,
   },
   formTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: darkTheme.accentYellow,
-    textAlign: 'center',
+    textAlign: "center",
     marginBottom: 15,
   },
   formRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   leftColumn: {
     flex: 1,
@@ -217,7 +217,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: darkTheme.cardBlack,
     color: darkTheme.textWhite,
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
   },
   formTextArea: {
     height: 100,
@@ -228,7 +228,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: darkTheme.cardBlack,
     color: darkTheme.textWhite,
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
   },
   buttonContainer: {
     marginTop: 15,
@@ -236,18 +236,18 @@ const commonStyle = StyleSheet.create({
   },
   formButtonContainer: {
     marginTop: 15,
-    alignSelf: 'center',
+    alignSelf: "center",
     width: 200,
   },
 
   innerContainer: {
-    width: '100%',
-    alignItems: 'center',
+    width: "100%",
+    alignItems: "center",
   },
   status: {
     color: darkTheme.accentGreen,
     marginTop: 10,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

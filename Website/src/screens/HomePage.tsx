@@ -71,7 +71,7 @@ const HomePage: React.FC<NavigationProps<"Home">> = ({ navigation }) => {
       name: "Smart Thermostat",
       image1: require("../../SmartThermostat.jpg"),
       image2: require("../../SmartThermostat2.jpg"),
-      reportFile: "../../Lab1SmartThermostat.pdf",
+      reportFile: require("../../Lab1SmartThermostat.pdf"),
       description:
         "Our Smart Thermostat project utilized an ESP32 Microcontroller to control an internet-connected thermostat module. It also allowed for remote connection over Wi-Fi for real-time temperature monitoring.",
     },
@@ -79,7 +79,7 @@ const HomePage: React.FC<NavigationProps<"Home">> = ({ navigation }) => {
       name: "ESP Digital Filter",
       image1: require("../../Lab2.jpg"),
       image2: require("../../Lab2b.png"),
-      reportFile: "../../Lab2DigitalFilter.pdf",
+      reportFile: require("../../Lab2DigitalFilter.pdf"),
       description:
         "Our ESP Digital Filter project utilized an ESP32 Microcontroller and custom circuitry to implement a digital filter.",
     },

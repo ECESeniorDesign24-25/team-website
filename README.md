@@ -29,6 +29,6 @@ This will redeploy the application to the UIowa MyWeb server
 
 To change the password, run the following:
 
-1. `./update_pass.sh`
+1. `./update_pass.sh {NEW_PASSWORD}`
 
 This will update the password file and re-deploy the app automatically

@@ -2,12 +2,13 @@ import { StyleSheet } from 'react-native';
 
 // Dark UI background
 export const darkTheme = {
-    backgroundBlack: '#000000', 
-    cardBlack: '#121212',
-    textWhite: '#FFFFFF',
-    accentYellow: '#FFCD00',
-    accentGray: "#BBBCBC"
-  };
+  backgroundBlack: '#000000', 
+  cardBlack: '#121212',
+  textWhite: '#FFFFFF',
+  accentYellow: '#FFCD00',
+  accentGray: "#BBBCBC",
+  accentGreen: "#009688",
+};
 
 // component common styles
 const commonStyle = StyleSheet.create({
@@ -94,6 +95,12 @@ const commonStyle = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     fontSize: 16,
+    height: 40,
+    borderColor: darkTheme.accentYellow,
+    paddingHorizontal: 10,
+    marginVertical: 10,
+    color: darkTheme.textWhite,
+    backgroundColor: darkTheme.cardBlack,
   },
   modalButtons: {
     flexDirection: 'row',
@@ -112,6 +119,7 @@ const commonStyle = StyleSheet.create({
     marginBottom: 20, 
     textAlign: 'center',
     fontFamily: 'Antonio-bold',
+    color: darkTheme.accentYellow,
   },
   text: { 
     fontSize: 16, 
@@ -150,6 +158,9 @@ const commonStyle = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: darkTheme.cardBlack,
     color: darkTheme.textWhite,
+    paddingVertical: 10,
+    marginVertical: 10,
+    textAlignVertical: 'top',
   },
   subtitle: {
     fontSize: 16,
@@ -159,6 +170,9 @@ const commonStyle = StyleSheet.create({
   outerContainer: {
     flex: 1,
     backgroundColor: darkTheme.backgroundBlack,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   },
   formContainer: {
     padding: 15,
@@ -218,12 +232,23 @@ const commonStyle = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 15,
+    marginVertical: 10,
   },
   formButtonContainer: {
     marginTop: 15,
     width: '50%',
     alignSelf: 'center',
-  }
+  },
+
+  innerContainer: {
+    width: '100%',
+    alignItems: 'center',
+  },
+  status: {
+    color: darkTheme.accentGreen,
+    marginTop: 10,
+    textAlign: 'center',
+  },
 });
 
 export default commonStyle;

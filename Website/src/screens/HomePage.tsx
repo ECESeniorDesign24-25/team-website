@@ -4,10 +4,10 @@ import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
 import { PASSWORD } from '../../pass';
 import { showAlert } from '../utils/Alert';
-import Footer from '../components/Footer';
+import FooterComponent from '../components/FooterComponent';
 
-// Home component
-const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
+// HomePage
+const HomePage: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // force re-authentication after 30 minutes
   const AUTH_TIMEOUT = 30 * 60 * 1000;
@@ -21,10 +21,10 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
   // Member data
   const members = [
-    { name: 'Joseph', image1: require('../../joseph_headshot.jpeg'), image2: require("../../joseph_pic_2.jpg"), bio: "Joseph is a fourth-year Computer Science and Engineering student with a focus on Machine Learning. He is from Ankeny, Iowa. Joseph currently works at John Deere for their Intelligent Solutions Group focusing on software development and automation. Outside of school, he enjoys playing soccer, basketball, and poker.", email: "jbkrueger@uiowa.edu"},
-    { name: 'Holland', image1: require('../../Holland1.jpg'), image2: require("../../Holland1.jpg"), bio: "Holland is a fourth-year Electrical Engineering student with a focus in Power Systems. Upon graduating he intends to pursue work in transmission and distribution planning, substation design and/or protective relay design.", email: "holland-gilmore@uiowa.edu"},
-    { name: 'Bri', image1: require('../../BriPic1.jpg'), image2: require("../../BriPic2.jpg"), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu"},
-    { name: 'Cavan', image1: require('../../cavan_profile_image.png'), image2: require("../../cavan_profile_image.png"), bio: "To be determined.", email: "cavan-riley@uiowa.edu" },
+    { name: 'Joseph', image1: require('../../joseph_headshot.jpeg'), image2: require("../../joseph_pic_2.jpg"), bio: "Joseph is a fourth-year Computer Science and Engineering student with a focus on Machine Learning. He is from Ankeny, Iowa. Joseph currently works at John Deere for their Intelligent Solutions Group focusing on software development and automation. Outside of school, he enjoys playing soccer, basketball, and poker.", email: "jbkrueger@uiowa.edu", number: "+16087974248"},
+    { name: 'Holland', image1: require('../../Holland1.jpg'), image2: require("../../Holland1.jpg"), bio: "Holland is a fourth-year Electrical Engineering student with a focus in Power Systems. Upon graduating he intends to pursue work in transmission and distribution planning, substation design and/or protective relay design.", email: "holland-gilmore@uiowa.edu", number: "+16087974248"},
+    { name: 'Bri', image1: require('../../BriPic1.jpg'), image2: require("../../BriPic2.jpg"), bio: "Bri is a fourth-year Electrical Engineering student with a focus on sustainability. She grew up in West Liberty, Iowa, a community with a majority Hispanic population. Upon graduation, Bri plans to move out of state to pursue a career in embedded systems and/or energy consumption. She is committed to prioritizing travel, expanding her knowledge, and engaging in outreach efforts to support STEM education in lower-income Hispanic communities.", email: "brianna-villarreal@uiowa.edu", number: "+16087974248"},
+    { name: 'Cavan', image1: require('../../cavan_profile_image.png'), image2: require("../../cavan_profile_image.png"), bio: "To be determined.", email: "cavan-riley@uiowa.edu", number: "+16087974248"},
   ];
 
   // Project data
@@ -91,7 +91,10 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
         style={{ backgroundColor: darkTheme.backgroundBlack }} 
         contentContainerStyle={commonStyle.container}
       >
+        {/* Header */}
         <Text style={[commonStyle.header, { color: darkTheme.accentYellow }]}>ECE Team 15: GymHawks</Text>
+
+        {/* Members */}
         <Text style={[commonStyle.sectionTitle, { color: darkTheme.accentYellow }]}>Members</Text>
         <View style={commonStyle.row}>
           {members.map((member, index) => (
@@ -99,13 +102,15 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
               <Image source={member.image1} style={commonStyle.memberImage} />
               <TouchableOpacity
                 style={[commonStyle.memberButton, { backgroundColor: darkTheme.cardBlack }]}
-                onPress={() => handleNavigationRequest('MemberPage', { name: member.name, image: member.image2, bio: member.bio, email: member.email })}
+                onPress={() => handleNavigationRequest('MemberPage', { name: member.name, image: member.image2, bio: member.bio, email: member.email, number: member.number })}
               >
                 <Text style={[commonStyle.nameText, { color: darkTheme.textWhite }]}>{member.name}</Text>
               </TouchableOpacity>
             </View>
           ))}
         </View>
+
+        {/* Projects */}
         <Text style={[commonStyle.sectionTitle, { color: darkTheme.accentYellow }]}>Projects</Text>
         <View style={commonStyle.row}>
           {projects.map((project, index) => (
@@ -121,7 +126,7 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
           ))}
         </View>
 
-        {/* Modal for sign in component */}
+        {/* Popup for sign in component */}
         <Modal visible={isModalVisible} transparent={true} animationType="fade">
           <View style={commonStyle.modalContainer}>
             <View style={commonStyle.modalContent}>
@@ -148,9 +153,18 @@ const Home: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
             </View>
           </View>
         </Modal>
-        <Footer />
+
+        {/* Message History */}
+        <View style={commonStyle.formButtonContainer}>
+          <Button
+            title="View Message History"
+            color={darkTheme.accentYellow}
+            onPress={() => navigation.navigate('MessageHistoryPage')}
+          />
+        </View>
+        <FooterComponent />
       </ScrollView>
   );
 };
 
-export default Home;
+export default HomePage;

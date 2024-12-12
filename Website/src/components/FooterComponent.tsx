@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, GestureResponderEvent } from 'react-native';
 import commonStyle, {darkTheme} from '../utils/Style'; 
 
 
-const Footer: React.FC = () => {
+const FooterComponent: React.FC = () => {
   return (
     <View style={commonStyle.footer}>
       <Text style={[commonStyle.footerText, { color: darkTheme.textWhite, paddingTop: 40}]}>
@@ -13,4 +13,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default FooterComponent;

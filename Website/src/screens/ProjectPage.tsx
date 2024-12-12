@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, Button, Alert, Platform, Image } from 'react-native';
 import { NavigationProps } from '../types/navigation';
 import commonStyle, { darkTheme } from '../utils/Style';
-import Footer from '../components/Footer';
+import FooterComponent from '../components/FooterComponent';
 
 // ProjectPage component
 export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
-
+  
   // customized data for each project
   const { name, reportFile, image, description } = route.params;
   const [downloading, setDownloading] = useState(false);
@@ -43,7 +43,7 @@ export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
           disabled={downloading}
         />
       </View>
-      <Footer />
+      <FooterComponent />
     </View>
   );
 }

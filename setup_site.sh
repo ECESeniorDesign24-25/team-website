@@ -6,4 +6,9 @@ npm install @react-navigation/native react-native-screens react-native-safe-area
 npm install @react-navigation/stack @react-navigation/bottom-tabs
 npm install react-native-fs
 npx expo install react-native-web @expo/metro-runtime react-dom
+npm install qrcode.react
+npm install @react-native-picker/picker
+npm install @react-native-async-storage/async-storage
+npm install react-native-uuid
 
+npm audit fix

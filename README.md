@@ -6,12 +6,12 @@ To download this repository to your computer, run the following:
 
    
 
-# Local Deployment
+# Local Website Deployment 
 
 To deploy the application locally, run the following:
 
-1. `./setup.sh`
-2. `./run.sh`
+1. `./setup_site.sh`
+2. `./run_website.sh`
 
 This will run the website in your local browser.
 

@@ -59,7 +59,7 @@ const HomePage: React.FC<NavigationProps<"Home">> = ({ navigation }) => {
       name: "Cavan",
       image1: require("../../cavan_profile_image.png"),
       image2: require("../../cavan_profile_image.png"),
-      bio: "To be determined.",
+      bio: "Cavan is a fourth-year Computer Science and Engineering student with a focus on Software Development. He is from Cedar Rapids, Iowa and is currently an undergraduate research assistant in the SINAPSE lab in the College of Engineering. His research involves leveraging advanced deep learning techniques to analyze medical imaging, aiming to improve diagnostic precision and patient outcomes.",
       email: "cavan-riley@uiowa.edu",
       number: "+16087974248",
     },

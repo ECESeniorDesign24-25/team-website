@@ -9,4 +9,6 @@ npx expo install react-native-web @expo/metro-runtime react-dom
 npm install qrcode.react
 npm install @react-native-picker/picker
 npm install @react-native-async-storage/async-storage
+npm install react-native-uuid
+
 npm audit fix

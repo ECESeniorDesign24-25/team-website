@@ -13,18 +13,20 @@ export type RootStackParamList = {
 export type NavigationProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;
 
 //////////////////////////////////////// Authentication ////////////////////////////////////////
+
 // Authentication interface
-export type Authentication = {
-    isAuthenticated: boolean;
-    lastAuthenticatedTime?: number;
+export type AuthenticationContextType = {
+  isAuthenticated: boolean;
+  setIsAuthenticated: (value: boolean) => void;
 }
 
-// Authentication provider parameters
+// parameters for the provider
 export type AuthenticationProviderProps = {
   children: ReactNode;
 }
 
 //////////////////////////////////////// Messaging ////////////////////////////////////////
+
 // Message interface
 export type Message = {
   uuid: string;

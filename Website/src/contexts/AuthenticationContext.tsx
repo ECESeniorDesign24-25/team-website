@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthenticationContextType, AuthenticationProviderProps } from '../types/types';
 
-// AsyncStorage key
+// AsyncStorage keys
 const AUTH_STORAGE_KEY = '@isAuthenticated';
+const AUTH_TIME_STORAGE_KEY = '@lastAuthenticatedTime';
 
-// Define the context type
-interface AuthenticationContextType {
-  isAuthenticated: boolean;
-  setIsAuthenticated: (value: boolean) => void;
-}
+// timeout 
+const TIMEOUT = 3 * 60 * 1000;
+
 
 // Create the context
 const AuthenticationContext = createContext<AuthenticationContextType>({
@@ -16,21 +16,30 @@ const AuthenticationContext = createContext<AuthenticationContextType>({
   setIsAuthenticated: () => {},
 });
 
-interface AuthenticationProviderProps {
-  children: ReactNode;
-}
 
 // Provider component
 export const AuthenticationProvider: React.FC<AuthenticationProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticatedState] = useState<boolean>(false);
 
-  // Load authentication state from AsyncStorage when the provider mounts
+  // Load authentication state and last authenticated time from AsyncStorage when the provider mounts
   useEffect(() => {
     const loadAuthenticationState = async () => {
       try {
         const storedAuth = await AsyncStorage.getItem(AUTH_STORAGE_KEY);
-        if (storedAuth !== null) {
-          setIsAuthenticatedState(storedAuth === 'true');
+        const storedTime = await AsyncStorage.getItem(AUTH_TIME_STORAGE_KEY);
+
+        if (storedAuth === 'true' && storedTime) {
+          const lastAuthenticatedTime = parseInt(storedTime, 10);
+          const currentTime = Date.now();
+
+          // check for timeout
+          if (currentTime - lastAuthenticatedTime > TIMEOUT) {
+            setIsAuthenticatedState(false); 
+            await AsyncStorage.removeItem(AUTH_STORAGE_KEY);
+            await AsyncStorage.removeItem(AUTH_TIME_STORAGE_KEY);
+          } else {
+            setIsAuthenticatedState(true); 
+          }
         }
       } catch (error) {
         console.error('Error loading authentication state:', error);
@@ -40,11 +49,17 @@ export const AuthenticationProvider: React.FC<AuthenticationProviderProps> = ({ 
     loadAuthenticationState();
   }, []);
 
-  // Save authentication state to AsyncStorage whenever it changes
+  // Save authentication state and time to AsyncStorage whenever it changes
   useEffect(() => {
     const saveAuthenticationState = async () => {
       try {
-        await AsyncStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(isAuthenticated));
+        if (isAuthenticated) {
+          await AsyncStorage.setItem(AUTH_STORAGE_KEY, 'true');
+          await AsyncStorage.setItem(AUTH_TIME_STORAGE_KEY, Date.now().toString());
+        } else {
+          await AsyncStorage.removeItem(AUTH_STORAGE_KEY);
+          await AsyncStorage.removeItem(AUTH_TIME_STORAGE_KEY);
+        }
       } catch (error) {
         console.error('Error saving authentication state:', error);
       }
@@ -53,7 +68,7 @@ export const AuthenticationProvider: React.FC<AuthenticationProviderProps> = ({ 
     saveAuthenticationState();
   }, [isAuthenticated]);
 
-  // Custom setter function to update the state
+  // function to update state
   const setIsAuthenticated = (value: boolean) => {
     setIsAuthenticatedState(value);
   };
@@ -65,5 +80,5 @@ export const AuthenticationProvider: React.FC<AuthenticationProviderProps> = ({ 
   );
 };
 
-// Custom hook to use the AuthenticationContext
+// hook to use the AuthenticationContext
 export const useAuthenticationContext = () => useContext(AuthenticationContext);

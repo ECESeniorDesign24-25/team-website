@@ -236,8 +236,8 @@ const commonStyle = StyleSheet.create({
   },
   formButtonContainer: {
     marginTop: 15,
-    width: '50%',
     alignSelf: 'center',
+    width: 200,
   },
 
   innerContainer: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { NavigationProps } from '../types/navigation';
+import { NavigationProps } from '../types/types';
 import commonStyle, { darkTheme } from '../utils/Style';
 import { useMessages } from '../contexts/MessagesContext';
 import FooterComponent from '../components/FooterComponent';

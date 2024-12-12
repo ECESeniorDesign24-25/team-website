@@ -8,6 +8,7 @@ import MessageHistoryPage from './src/screens/MessageHistoryPage';
 import SendMessagePage from './src/screens/SendMessagePage';
 import * as Font from 'expo-font';
 import { MessagesProvider } from './src/contexts/MessagesContext';
+import { AuthenticationProvider } from './src/contexts/AuthenticationContext';
 
 export type RootStackParamList = {
   HomePage: undefined;
@@ -35,25 +36,27 @@ export default function App() {
   }, []);
 
   return (
-    <MessagesProvider> {/* WRAP HERE */}
-      <NavigationContainer>
-        <StackNavigator.Navigator
-          screenOptions={{
-            headerShown: true,
-            headerStyle: {
-              backgroundColor: '#FFCD00',
-            },
-            headerTintColor: '#FFFFFF',
-            headerTitleStyle: { fontWeight: 'bold' },
-          }}
-        >
-          <StackNavigator.Screen name="HomePage" component={HomePage} options={{ headerShown: false }} />
-          <StackNavigator.Screen name="MemberPage" component={MemberPage} options={{ headerShown: true }} />
-          <StackNavigator.Screen name="ProjectPage" component={ProjectPage} options={{ headerShown: true }} />
-          <StackNavigator.Screen name="MessageHistoryPage" component={MessageHistoryPage} options={{ title: 'Message History' }}/>
-          <StackNavigator.Screen name="SendMessagePage" component={require('./src/screens/SendMessagePage').default} options={{ title: 'Send Message' }}/>
-        </StackNavigator.Navigator>
-      </NavigationContainer>
-    </MessagesProvider>
+    <AuthenticationProvider>
+      <MessagesProvider>
+        <NavigationContainer>
+          <StackNavigator.Navigator
+            screenOptions={{
+              headerShown: true,
+              headerStyle: {
+                backgroundColor: '#FFCD00',
+              },
+              headerTintColor: '#FFFFFF',
+              headerTitleStyle: { fontWeight: 'bold' },
+            }}
+          >
+            <StackNavigator.Screen name="HomePage" component={HomePage} options={{ headerShown: false }} />
+            <StackNavigator.Screen name="MemberPage" component={MemberPage} options={{ headerShown: true }} />
+            <StackNavigator.Screen name="ProjectPage" component={ProjectPage} options={{ headerShown: true }} />
+            <StackNavigator.Screen name="MessageHistoryPage" component={MessageHistoryPage} options={{ title: 'Message History' }}/>
+            <StackNavigator.Screen name="SendMessagePage" component={require('./src/screens/SendMessagePage').default} options={{ title: 'Send Message' }}/>
+          </StackNavigator.Navigator>
+        </NavigationContainer>
+      </MessagesProvider>
+    </AuthenticationProvider>
   );
 }

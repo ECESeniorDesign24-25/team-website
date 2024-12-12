@@ -1,23 +1,22 @@
-import React, { useState, useEffect} from 'react';
-import { ScrollView, View, Text, TouchableOpacity, Image, Modal, TextInput, Alert, Button } from 'react-native';
-import { NavigationProps } from '../types/navigation';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, View, Text, TouchableOpacity, Image, Modal, TextInput, Button, } from 'react-native';
+import { NavigationProps } from '../types/types';
 import commonStyle, { darkTheme } from '../utils/Style';
 import { PASSWORD } from '../../pass';
 import { showAlert } from '../utils/Alert';
 import FooterComponent from '../components/FooterComponent';
+import { useAuthenticationContext } from '../contexts/AuthenticationContext';
 
 // HomePage
 const HomePage: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
 
-  // force re-authentication after 30 minutes
-  const AUTH_TIMEOUT = 30 * 60 * 1000;
-
   // state variables and setters
   const [isModalVisible, setModalVisible] = useState(false);
   const [password, setPassword] = useState('');
-  const [isAuthenticated, setAuthenticated] = useState(false); 
   const [navigateTarget, setNavigateTarget] = useState<{ route: string; params?: object } | null>(null);
-  const [lastAuthenticatedTime, setLastAuthenticatedTime] = useState<number | null>(null);
+
+  // Access global authentication context
+  const { isAuthenticated, setIsAuthenticated } = useAuthenticationContext();
 
   // Member data
   const members = [
@@ -48,20 +47,22 @@ const HomePage: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
     }
   };
 
+  useEffect(() => {
+    console.log("isAuthenticated state:", isAuthenticated);
+  }, [isAuthenticated]);
+
   // check if credentials match on sign in 
   const handleSignIn = () => {
     if (password === PASSWORD) {
 
       // Mark as authenticated if match
-      setAuthenticated(true); 
+      setIsAuthenticated(true); 
       if (navigateTarget) {
 
         // switch pages if user was trying to navigate
         navigation.navigate(navigateTarget.route, navigateTarget.params);
       }
 
-      // Update the last authenticated time
-      setLastAuthenticatedTime(Date.now()); 
       setModalVisible(false);
       setPassword('');
       setNavigateTarget(null);
@@ -69,21 +70,6 @@ const HomePage: React.FC<NavigationProps<'Home'>> = ({ navigation }) => {
       showAlert('Incorrect Password', 'Please try again.',);
     }
   };
-
-  // check if authentication has expired
-  const isAuthExpired = (): boolean => {
-
-    // return true if no timeout, false otherwise
-    return (!lastAuthenticatedTime) || (Date.now() - lastAuthenticatedTime > AUTH_TIMEOUT);
-  };
-
-  // Request sign in if authentication has expired
-  useEffect(function checkAuthExpiration() {
-    if (isAuthenticated && isAuthExpired()) {
-      setAuthenticated(false);
-      showAlert('Session Expired', 'Please sign in again.');
-    }
-  }, [isAuthenticated]);
 
   // Render the Home page
   return (

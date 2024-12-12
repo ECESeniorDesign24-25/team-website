@@ -1,40 +1,16 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Alert } from 'react-native';
 import uuid from 'react-native-uuid';
-import { showAlert } from '../utils/Alert';
-
-interface Message {
-  uuid: string;
-  to: string;
-  from: string;
-  messageBody: string;
-  timestamp: number;
-}
-
-// global context value
-interface MessagesContextValue {
-  messages: Message[];
-  addMessage: (to: string, from: string, messageBody: string) => void;
-  deleteMessage: (id: string) => void;
-  clearMessages: () => void;
-}
-
-// parameters for the provider
-interface MessagesProviderProps {
-  children: ReactNode;
-}
-
-// global context for accessing/storing/deleting messages
-const MessagesContext = createContext<MessagesContextValue>({
-  messages: [],
-  addMessage: () => {},
-  deleteMessage: () => {},
-  clearMessages: () => {},
-});
+import { Message, MessagesProviderProps } from '../types/types';
 
 // async storage key
-const STORAGE_KEY = '@messages';
+const MSG_STORAGE_KEY = '@messages';
+
+// global context for accessing/storing/deleting messages
+const MessagesContext = createContext({
+  messages: [],
+  addMessage: (to: string, from: string, body: string) => {}
+});
 
 // Provider component
 export const MessagesProvider: React.FC<MessagesProviderProps> = ({ children }) => {
@@ -44,7 +20,7 @@ export const MessagesProvider: React.FC<MessagesProviderProps> = ({ children }) 
     useEffect(() => {
     const loadMessages = async () => {
         try {
-        const storedMessages = await AsyncStorage.getItem(STORAGE_KEY);
+        const storedMessages = await AsyncStorage.getItem(MSG_STORAGE_KEY);
         if (storedMessages) {
             
             setMessages(JSON.parse(storedMessages));
@@ -61,10 +37,9 @@ export const MessagesProvider: React.FC<MessagesProviderProps> = ({ children }) 
     useEffect(() => {
     const saveMessages = async () => {
         try {
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+        await AsyncStorage.setItem(MSG_STORAGE_KEY, JSON.stringify(messages));
         } catch (error) {
-            console.error('Failed to save messages:', error);
-            Alert.alert('Error', 'Failed to save messages.');
+            console.error('Failed to save messages to store:', error);
         }
     };
 
@@ -73,32 +48,23 @@ export const MessagesProvider: React.FC<MessagesProviderProps> = ({ children }) 
 
     // Function to add a new message
     const addMessage = (to: string, from: string, messageBody: string) => {
-    const newMessage: Message = {
+        const newMessage: Message = {
 
-        // unique id for each message
-        uuid: uuid.v4() as string,
-        to,
-        from,
-        messageBody,
-        timestamp: Date.now(),
-    };
+            // unique id for each message
+            uuid: uuid.v4() as string,
+            to,
+            from,
+            messageBody,
+            timestamp: Date.now(),
+        };
 
         // Update the messages list by adding the new message at the beginning
         setMessages((prevMessages) => [newMessage, ...prevMessages]);
     };
 
-    // Function to delete a message by ID
-    const deleteMessage = (id: string) => {
-        setMessages((prevMessages) => prevMessages.filter((msg) => msg.uuid !== id));
-    };
-
-    // Function to clear all messages
-    const clearMessages = () => {
-        setMessages([]);
-    };
 
     return (
-    <MessagesContext.Provider value={{ messages, addMessage, deleteMessage, clearMessages }}>
+    <MessagesContext.Provider value={{ messages, addMessage }}>
         {children}
     </MessagesContext.Provider>
     );

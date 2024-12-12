@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View, Text, Image, Button } from 'react-native';
-import { NavigationProps } from '../types/navigation';
+import { NavigationProps } from '../types/types';
 import commonStyle, { darkTheme } from '../utils/Style';
 import FooterComponent from '../components/FooterComponent';
 

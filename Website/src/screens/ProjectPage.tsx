@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Button, Alert, Platform, Image } from 'react-native';
-import { NavigationProps } from '../types/navigation';
+import { NavigationProps } from '../types/types';
 import commonStyle, { darkTheme } from '../utils/Style';
 import FooterComponent from '../components/FooterComponent';
 
 // ProjectPage component
 export default function ProjectPage({ route }: NavigationProps<'ProjectPage'>) {
-  
+
   // customized data for each project
   const { name, reportFile, image, description } = route.params;
   const [downloading, setDownloading] = useState(false);

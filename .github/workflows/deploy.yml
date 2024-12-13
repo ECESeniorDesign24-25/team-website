@@ -15,6 +15,6 @@ jobs:
 
       - name: Run Deploy Script
         run: |
-          chmod +x ./deploy_web.sh
-          ./deploy_web.sh
+          chmod +x ./deploy_myweb.sh
+          ./deploy_myweb.sh
 

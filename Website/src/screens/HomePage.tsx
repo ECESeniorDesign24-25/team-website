@@ -42,7 +42,7 @@ const HomePage: React.FC<NavigationProps<"Home">> = ({ navigation }) => {
     {
       name: "Holland",
       image1: require("../../Holland1.jpg"),
-      image2: require("../../Holland2.jpg"),
+      image2: require("../../Holland2.png"),
       bio: "Holland is a fourth-year Electrical Engineering student with a focus in Power Systems. Upon graduating he intends to pursue work in transmission and distribution planning, substation design and/or protective relay design.",
       email: "holland-gilmore@uiowa.edu",
       number: "+16087974248",
